@@ -10,8 +10,6 @@ class WeatherStore {
     hasLoaded: boolean = false;
     error: string | null = null;
     units: 'metric' | 'imperial' | null = "metric";
-    latitude: number | null = null;
-    longitude: number | null = null;
 
     constructor() {
         makeAutoObservable(this);
