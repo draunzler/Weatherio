@@ -63,7 +63,7 @@ const App: React.FC = observer(() => {
         <>
             <div className="App">
                 <header>
-                    <h1>Weatherio</h1>
+                    <h1>Nimbus</h1>
                     <div className="container">
                         <input
                             type="text"
