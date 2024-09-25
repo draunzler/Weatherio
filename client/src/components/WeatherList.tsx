@@ -5,14 +5,15 @@ import weatherStore from "../stores/WeatherStore";
 import styles from "../styles/weatherList.module.scss";
 
 const WeatherList: React.FC = observer(() => {
-    const { weatherData, loading, error } = weatherStore;
+    const { weatherData, loading, error, hasLoaded } = weatherStore;
 
     if (error) return <p>{error}</p>;
 
     return (
         <>
-            {loading ? (
+            {loading && !hasLoaded ? (
                 <div className={styles.skeletonLoader}>
+                    {/* Render the skeleton loader only if the data has not been loaded */}
                     <div className={styles.skeletonItem} />
                     <div className={styles.skeletonItem} />
                     <div className={styles.skeletonItem} />

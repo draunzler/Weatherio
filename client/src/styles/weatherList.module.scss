@@ -27,14 +27,16 @@
     border-radius: 5px;
     width: 6.25rem;
     height: 172px;
-    animation: shimmer 0.9s linear infinite alternate;
+    background: linear-gradient(90deg, hsl(0, 0%, 90%)25%, hsl(200, 20%, 95%) 50%, hsl(0, 0%, 90%) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
   }
 }
 @keyframes shimmer {
   0% {
-    background-color: hsl(200, 20%, 70%);
+    background-position: 200% 0;
   }
   100% {
-      background-color: hsl(200, 20%, 95%);
+      background-position: -200% 0;
   }
 }

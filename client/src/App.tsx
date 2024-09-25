@@ -5,7 +5,6 @@ import CurrentWeather from './components/CurrentWeather';
 import Forecast from "./components/Forecast";
 import WeatherChart from "./components/WeatherChart";
 import "./App.css";
-import { getUserLocation } from "./services/WeatherService";
 import { observer } from "mobx-react-lite";
 
 const App: React.FC = observer(() => {
@@ -18,19 +17,6 @@ const App: React.FC = observer(() => {
         setUnits(newUnits);
     };
 
-    const fetchUserLocation = async (latitude: number, longitude: number) => {
-        try {
-            const fetchedCity = await getUserLocation(latitude, longitude);
-            if (fetchedCity) {
-                setCity(fetchedCity);
-            } else {
-                console.error("Location not found");
-            }
-        } catch (error) {
-            console.error("Error fetching location:", error);
-        }
-    };
-
     useEffect(() => {
         fetchWeather();
     }, [units, useLocation]);
@@ -40,7 +26,8 @@ const App: React.FC = observer(() => {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     const { latitude, longitude } = position.coords;
-                    fetchUserLocation(latitude, longitude);
+                    weatherStore.latitude = latitude;
+                    weatherStore.longitude = longitude;
                     weatherStore.loadWeatherByCoordinates(latitude, longitude, units);
                 },
                 (error) => {
@@ -109,7 +96,7 @@ const App: React.FC = observer(() => {
                         </div>
                     </div>
                 </header>
-                <CurrentWeather city={city} />
+                <CurrentWeather latitude={weatherStore.latitude} longitude={weatherStore.longitude}/>
                 <WeatherList />
                 <div className="metrics">
                     <WeatherChart />

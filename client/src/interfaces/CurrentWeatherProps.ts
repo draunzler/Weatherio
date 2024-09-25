@@ -1,3 +1,4 @@
 export interface CurrentWeatherProps {
-    city: string;
+    latitude: number | null;
+    longitude: number | null;
 }

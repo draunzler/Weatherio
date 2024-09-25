@@ -42,24 +42,28 @@
     margin-top: -1rem;
     z-index: 10;
 }
-.skeletonLoader{
+.skeletonLoader {
     display: flex;
     gap: 2.5rem;
     margin: 1rem 2rem;
     padding: 1rem;
     height: 128px;
-    .skeletonItem {
-        border-radius: 5px;
-        width: 128px;
-        height: 128px;
-        animation: shimmer 0.9s linear infinite alternate;
-    }
 }
+
+.skeletonItem {
+    border-radius: 5px;
+    width: 128px;
+    height: 128px;
+    background: linear-gradient(90deg, hsl(0, 0%, 90%)25%, hsl(200, 20%, 95%) 50%, hsl(0, 0%, 90%) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+}
+
 @keyframes shimmer {
     0% {
-      background-color: hsl(200, 20%, 70%);
+        background-position: 200% 0;
     }
     100% {
-        background-color: hsl(200, 20%, 95%);
+        background-position: -200% 0;
     }
 }

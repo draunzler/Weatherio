@@ -39,7 +39,7 @@ const aggregateForecastData = (data: WeatherInfo[]) => {
 };
 
 const Forecast: React.FC = observer(() => {
-    const {weatherData, units, loading, error} = weatherStore;
+    const {weatherData, units, loading, error, hasLoaded} = weatherStore;
 
     const aggregatedData = aggregateForecastData(weatherData);
     const fiveDayForecast = aggregatedData.slice(0, 5).map(forecast => ({
@@ -57,7 +57,7 @@ const Forecast: React.FC = observer(() => {
     return (
         <div className={styles.forecast}>
             <h2 style={{marginLeft: "1rem"}}>Forecast</h2>
-            {loading ? (
+            {loading && !hasLoaded ? (
                 <div className={styles.skeletonLoader}>
                 <div className={styles.skeletonItem} />
                 <div className={styles.skeletonItem} />
