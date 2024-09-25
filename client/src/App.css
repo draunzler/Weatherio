@@ -93,3 +93,9 @@ input[id="imperial-radio"]:checked ~ .glider {
   margin: 2rem;
   gap: 1.25rem;
 }
+@media screen and (max-width:1200px) {
+  .metrics{
+    display: flex;
+    flex-direction: column;
+  }
+}

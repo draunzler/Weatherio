@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getCurrentWeatherByCoordinates } from '../services/WeatherService';
+import { getCurrentWeather } from '../services/WeatherService';
 import weatherStore from '../stores/WeatherStore';
 import styles from "../styles/currentWeather.module.scss";
 // import Loader from "./Loader";
@@ -8,7 +8,7 @@ import { WeatherData } from '../interfaces/WeatherData';
 import { CurrentWeatherProps } from '../interfaces/CurrentWeatherProps';
 import moment from 'moment-timezone';
 
-const CurrentWeather: React.FC<CurrentWeatherProps> = observer(({ latitude, longitude }) => {
+const CurrentWeather: React.FC<CurrentWeatherProps> = observer(({ city }) => {
     const [currentWeather, setCurrentWeather] = useState<WeatherData | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
@@ -18,7 +18,7 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = observer(({ latitude, long
         const fetchCurrentWeather = async () => {
             setLoading(true);
             try {
-                const weatherData = await getCurrentWeatherByCoordinates(latitude, longitude, weatherStore.units);
+                const weatherData = await getCurrentWeather(city, weatherStore.units);
                 setCurrentWeather(weatherData);
             } catch (err: any) {
                 setError(err.message || 'Failed to fetch weather data');
@@ -27,10 +27,10 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = observer(({ latitude, long
             }
         };
 
-        if (latitude && longitude) {
+        if (city) {
             fetchCurrentWeather();
         }
-    }, [latitude, longitude, weatherStore.units]);
+    }, [city, weatherStore.units]);
 
     if (error) {
         return <p>{error}</p>;
