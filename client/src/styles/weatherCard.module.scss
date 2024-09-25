@@ -1,0 +1,15 @@
+.weatherCard{
+    background: #fff;
+    border: 1px solid #00000020;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    min-width: 6.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.2s all ease-out;
+    &:hover{
+        background: #e2e2e2;
+        border: none;
+    }
+}

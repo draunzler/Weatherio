@@ -1,0 +1,40 @@
+.weatherList{
+    display: flex;
+    width: calc(100% - 4rem);
+    overflow-x: auto;
+    align-items: center;
+    gap: 0.625rem;
+    margin: 0 2rem;
+    padding: 1rem;
+    &::-webkit-scrollbar{
+      height: 0.5rem;
+    }
+    &:hover::-webkit-scrollbar-track{
+      background: transparent;
+    }
+    &:hover::-webkit-scrollbar-thumb{
+      background: #bcbcbc;
+      border-radius: 0.5rem;
+    }
+}
+.skeletonLoader{
+  display: flex;
+  gap: 0.625rem;
+  margin: 0 2rem;
+  padding: 1rem;
+  width: calc(100% - 4rem);
+  .skeletonItem {
+    border-radius: 5px;
+    width: 6.25rem;
+    height: 172px;
+    animation: shimmer 0.9s linear infinite alternate;
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+  100% {
+      background-color: hsl(200, 20%, 95%);
+  }
+}
