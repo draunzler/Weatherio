@@ -88,10 +88,12 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = observer(({ city }) => {
                         <h1>{humidity}%</h1>
                         <h3>Humidity</h3>
                     </div>
-                    <div className={styles.description}>
-                        <h1>{speed} <span style={{ fontSize: "1rem" }}>{weatherStore.units === "metric" ? "m/s" : "mph"}</span></h1>
-                        <h3>Wind Speed</h3>
-                    </div>
+                    {window.innerWidth > 1000 && (
+                        <div className={styles.description}>
+                            <h1>{speed} <span style={{ fontSize: "1rem" }}>{weatherStore.units === "metric" ? "m/s" : "mph"}</span></h1>
+                            <h3>Wind Speed</h3>
+                        </div>
+                    )}
                     {/* <div className={styles.cityTime}>
                         <h3>Time: {cityTime}</h3>
                         <h3>Date: {cityDate}</h3>

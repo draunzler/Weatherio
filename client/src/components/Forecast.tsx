@@ -69,14 +69,14 @@ const Forecast: React.FC = observer(() => {
                 <div className={styles.forecastList}>
                     {fiveDayForecast.map((forecast, index) => (
                         <div className={styles.forecastCard} key={index}>
-                            <p>{forecast.date}</p>
-                            <p>
+                            <p style={{marginRight: "auto"}}>{forecast.date}</p>
+                            <p className={styles.logo}>
                                 <img style={{height: "5rem"}}
                                     src={`https://openweathermap.org/img/wn/${forecast.icon}@2x.png`}
                                     alt="Weather icon"
                                 />
                             </p>
-                            <p style={{ display: "flex", alignItems: "flex-end" }}>
+                            <p className={styles.minMax}>
                                 <h2>{forecast.maxTemp}° {units === 'metric' ? 'C' : 'F'}</h2> / 
                                 {forecast.minTemp}° {units === 'metric' ? 'C' : 'F'}
                             </p>

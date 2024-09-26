@@ -4,6 +4,9 @@
     margin: 0 2rem;
     padding: 1rem;
     align-items: center;
+    @media screen and (max-width: 1200px) {
+        justify-content: space-between;
+    }
     .progressBarWrapper {
         width: 40rem;
     }
