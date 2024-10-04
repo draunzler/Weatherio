@@ -76,7 +76,7 @@ const App: React.FC = observer(() => {
         <>
             <div className="App">
                 <header>
-                    <h1>weatherIQ</h1>
+                    <h1>Friday</h1>
                     <div className="container">
                         <input
                             type="text"

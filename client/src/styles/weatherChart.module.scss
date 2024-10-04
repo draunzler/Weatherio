@@ -1,10 +1,17 @@
 .weatherChart{
-    display: flex;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #00000020;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  overflow-x: hidden;
+}
+.chartHeader{
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width: 600px) {
     flex-direction: column;
-    border: 1px solid #00000020;
-    padding: 2rem;
-    border-radius: 1.5rem;
-    overflow-x: hidden;
+  }
 }
 input{
   padding: 0.85rem 1rem;
@@ -20,6 +27,7 @@ input:focus {
 .tabs {
   width: fit-content;
   align-self: flex-end;
+  justify-self: flex-end;
   display: flex;
   position: relative;
   background-color: #fff;

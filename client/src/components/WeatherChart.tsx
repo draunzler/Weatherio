@@ -100,7 +100,7 @@ const WeatherChart: React.FC = observer(() => {
 
     return (
         <div className={styles.weatherChart}>
-            <div style={{display: "flex", justifyContent: "space-between"}}>
+            <div className={styles.chartHeader}>
                 <h2>Overview <span style={{opacity: 0.5, fontSize: "1rem", fontWeight: 400}}>for the next <b>5</b> days</span></h2>
                 <div className={styles.tabs}>
                     <input

@@ -55,9 +55,7 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = observer(({ city }) => {
     const timezoneOffset = currentWeather.timezone;
     const timezoneString = `Etc/GMT${timezoneOffset >= 0 ? '-' : '+'}${Math.abs(timezoneOffset / 3600)}`;
     
-    // Using moment-timezone to get city time
     const cityTime = moment().tz(timezoneString).format('HH:mm');
-    // const cityDate = moment().tz(timezoneString).format('dddd, DD MMM \'YY');
 
     return (
         <>

@@ -7,6 +7,10 @@
     @media screen and (max-width: 1200px) {
         justify-content: space-between;
     }
+    @media screen and (max-width: 600px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
     .progressBarWrapper {
         width: 40rem;
     }
